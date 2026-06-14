@@ -54,12 +54,34 @@ BOARD_AVB_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_ROLLBACK_INDEX := $(PLATFORM_SECURITY_PATCH_TIMESTAMP)
 
 # Audio
+AUDIO_FEATURE_ENABLED_AAC_ADTS_OFFLOAD := true
+AUDIO_FEATURE_ENABLED_AUDIOSPHERE := true
+AUDIO_FEATURE_ENABLED_COMPRESS_VOIP := true
+AUDIO_FEATURE_ENABLED_EXT_AMPLIFIER := true
+AUDIO_FEATURE_ENABLED_EXTENDED_COMPRESS_FORMAT := true
+AUDIO_FEATURE_ENABLED_EXTN_FORMATS := true
+AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
+AUDIO_FEATURE_ENABLED_GEF_SUPPORT := true
+AUDIO_FEATURE_ENABLED_HDMI_SPK := true
+AUDIO_FEATURE_ENABLED_INSTANCE_ID := true
+AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
+AUDIO_FEATURE_ENABLED_SSR := true
+BOARD_SUPPORTS_OPENSOURCE_STHAL := true
+BOARD_SUPPORTS_SOUND_TRIGGER := true
+BOARD_USES_ALSA_AUDIO := true
+BOARD_USES_QCOM_AUDIO := true
+BOARD_SUPPORTS_SOUND_TRIGGER_HCI := true
+BOARD_QTI_USE_QAF := true
+BOARD_QTI_USE_SPKR_PROTECT := true
+USE_CUSTOM_AUDIO_POLICY := 1
+TARGET_USES_QCOM_MM_AUDIO := true
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH_QCOM := true
 BOARD_HAVE_QCOM_BT_IPC := true
 QCOM_BT_USE_BTNV := true
 
+# Display
 
 
 # Dynamic Partitions
@@ -120,6 +142,37 @@ BOARD_KERNEL_CMDLINE := \
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
 # Kernel modules - Audio
+TARGET_MODULE_ALIASES += \
+    adsp_loader_dlkm.ko:audio_adsp_loader.ko \
+    apr_dlkm.ko:audio_apr.ko \
+    bolero_cdc_dlkm.ko:audio_bolero_cdc.ko \
+    hdmi_dlkm.ko:audio_hdmi.ko \
+    machine_dlkm.ko:audio_machine_talos.ko \
+    mbhc_dlkm.ko:audio_mbhc.ko \
+    native_dlkm.ko:audio_native.ko \
+    pinctrl_lpi_dlkm.ko:audio_pinctrl_lpi.ko \
+    pinctrl_wcd_dlkm.ko:audio_pinctrl_wcd.ko \
+    platform_dlkm.ko:audio_platform.ko \
+    q6_dlkm.ko:audio_q6.ko \
+    q6_notifier_dlkm.ko:audio_q6_notifier.ko \
+    q6_pdr_dlkm.ko:audio_q6_pdr.ko \
+    rx_macro_dlkm.ko:audio_rx_macro.ko \
+    snd_event_dlkm.ko:audio_snd_event.ko \
+    stub_dlkm.ko:audio_stub.ko \
+    swr_ctrl_dlkm.ko:audio_swr_ctrl.ko \
+    swr_dlkm.ko:audio_swr.ko \
+    tx_macro_dlkm.ko:audio_tx_macro.ko \
+    usf_dlkm.ko:audio_usf.ko \
+    va_macro_dlkm.ko:audio_va_macro.ko \
+    wcd934x_dlkm.ko:audio_wcd934x.ko \
+    wcd937x_dlkm.ko:audio_wcd937x.ko \
+    wcd937x_slave_dlkm.ko:audio_wcd937x_slave.ko \
+    wcd9xxx_dlkm.ko:audio_wcd9xxx.ko \
+    wcd_core_dlkm.ko:audio_wcd_core.ko \
+    wcd_spi_dlkm.ko:audio_wcd_spi.ko \
+    wglink_dlkm.ko:audio_wglink.ko \
+    wsa881x_dlkm.ko:audio_wsa881x.ko \
+    wsa_macro_dlkm.ko:audio_wsa_macro.ko
 
 # Kernel modules - Bluetooth
 
