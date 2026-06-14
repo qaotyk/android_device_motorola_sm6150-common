@@ -15,6 +15,9 @@
 # Inherit relevant product makefiles
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
+PRODUCT_SOONG_NAMESPACES += \
+    device/motorola/sm6150-common
+
 # A/B
 AB_OTA_UPDATER := true
 
@@ -144,9 +147,18 @@ PRODUCT_VENDOR_PROPERTIES += \
 PRODUCT_PACKAGES += \
     fastbootd
 
+# GPS
+$(call inherit-product, $(COMMON_PATH)/gps/gps_vendor_product.mk)
+
 # Init
 
 # Lights
+
+# Location
+$(call inherit-product, $(COMMON_PATH)/location/gps_vendor_product.mk)
+
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml
 
 # Media
 
